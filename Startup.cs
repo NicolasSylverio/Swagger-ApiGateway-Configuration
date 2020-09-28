@@ -62,6 +62,14 @@ namespace Swagger.Gateway.Configuration
                     Variables = new Dictionary<string, OpenApiServerVariable>()
                 });
 
+                #region Apigee
+
+                #endregion
+
+                #region Azure Api Gateway Filters
+
+                #endregion
+
                 #region Aws Api Gateway Filters
 
                 //options.DocumentFilter<AwsApiGatewayDocumentFilter>();
