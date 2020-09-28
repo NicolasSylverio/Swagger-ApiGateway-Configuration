@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Swagger.Gateway.Configuration.GatewayFilters.AWS;
 using Swagger.Gateway.Configuration.GatewayFilters.WSO2;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,11 @@ namespace Swagger.Gateway.Configuration
                             Name = "Nicolas Sylverio",
                             Url = new Uri("https://github.com/NicolasSylverio/Swagger-ApiGateway-Configuration")
                         },
+                        License = new OpenApiLicense
+                        {
+                            Name = "Use under MIT",
+                            Url = new Uri("https://github.com/NicolasSylverio/Swagger-ApiGateway-Configuration/blob/master/LICENSE"),
+                        }
                     }
                 );
 
@@ -56,24 +62,36 @@ namespace Swagger.Gateway.Configuration
                     Variables = new Dictionary<string, OpenApiServerVariable>()
                 });
 
-                options.AddSecurityDefinition("default", new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.OAuth2,
-                    Flows = new OpenApiOAuthFlows
-                    {
-                        Implicit = new OpenApiOAuthFlow
-                        {
-                            AuthorizationUrl = new Uri("https://test.com"),
-                            Scopes = new Dictionary<string, string>()
-                        }
-                    }
-                });
+                #region Aws Api Gateway Filters
 
+                //options.DocumentFilter<AwsApiGatewayDocumentFilter>();
+                //options.OperationFilter<AwsApiGatewayOperationFilter>();
+                //options.SchemaFilter<AwsApiGatewaySchemaFilter>();
+                //options.ParameterFilter<AwsApiGatewayParameterFilter>();
 
-                options.DocumentFilter<Wso2ApiGatewayDocumentFilter>();
-                options.OperationFilter<Wso2ApiGatewayOperationFilter>();
-                options.SchemaFilter<Wso2ApiGatewaySchemaFilter>();
-                options.ParameterFilter<Wso2ApiGatewayParameterFilter>();
+                #endregion
+
+                #region WSO2 Api Gateway Filters
+
+                //options.DocumentFilter<Wso2ApiGatewayDocumentFilter>();
+                //options.OperationFilter<Wso2ApiGatewayOperationFilter>();
+                //options.SchemaFilter<Wso2ApiGatewaySchemaFilter>();
+                //options.ParameterFilter<Wso2ApiGatewayParameterFilter>(); 
+
+                //options.AddSecurityDefinition("default", new OpenApiSecurityScheme
+                //{
+                //    Type = SecuritySchemeType.OAuth2,
+                //    Flows = new OpenApiOAuthFlows
+                //    {
+                //        Implicit = new OpenApiOAuthFlow
+                //        {
+                //            AuthorizationUrl = new Uri("https://localhost:4400/auth"),
+                //            Scopes = new Dictionary<string, string>()
+                //        }
+                //    }
+                //});
+
+                #endregion
             });
         }
 
