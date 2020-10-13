@@ -16,7 +16,7 @@ namespace Swagger.Gateway.Configuration.GatewayFilters.AWS
                     ["default"] = new OpenApiObject
                     {
                         ["statusCode"] = new OpenApiString(context.ApiDescription.SupportedResponseTypes.FirstOrDefault()?.StatusCode.ToString() ?? "200"),
-                        ["responseParameters"] = new OpenApiObject()
+                        ["responseParameters"] = new OpenApiObject()                        
                     }
                 },
                 ["uri"] = new OpenApiString($"http://demo.swagger.execute-api.sa-east-1.amazonaws.com/{context.ApiDescription.RelativePath}"),

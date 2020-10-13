@@ -84,7 +84,7 @@ namespace Swagger.Gateway.Configuration
                 //options.DocumentFilter<Wso2ApiGatewayDocumentFilter>();
                 //options.OperationFilter<Wso2ApiGatewayOperationFilter>();
                 //options.SchemaFilter<Wso2ApiGatewaySchemaFilter>();
-                //options.ParameterFilter<Wso2ApiGatewayParameterFilter>(); 
+                //options.ParameterFilter<Wso2ApiGatewayParameterFilter>();
 
                 //options.AddSecurityDefinition("default", new OpenApiSecurityScheme
                 //{
